@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html ng-app xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Ajax Demo</title>
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <script src="../lib/angular/angular.js"></script>
+    <script src="ajax-demo.js"></script>
+</head>
+<body ng-controller="AjaxDemoController">
+    <ol>
+        <li ng-repeat="emp in employees | orderBy:'-dob'">
+            Name: {{ emp.name }} <br />
+            DOB: {{ emp.dob }} <br />
+            Address: 
+            <pre>
+                {{ emp.address | json }}
+            </pre>
+        </li>
+    </ol>
+</body>
+</html>

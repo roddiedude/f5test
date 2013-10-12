@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="signUp" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Sign up form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../js/jquery-1.10.2.js"></script>
+
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/bootstrap-responsive.css" rel="stylesheet" />
+    <script src="../js/bootstrap.js"></script>
+
+    <script src="../lib/angular/angular.js"></script>
+    <script src="LogonController.js"></script>
+</head>
+
+<body>
+    <div class="container" data-ng-controller="SignUpController" data-ng-init="userCreationSuccess=false">
+        <div class="row">
+            <div class="span12 well">
+                <div class="span3">
+                    <h2>Sign Up</h2>
+                    <form name="signUpForm">
+                        <label>
+                            First Name
+                                <input type="text" name="firstname" class="span3" placeholder="John" required="required" data-ng-model="user.firstName" /></label>
+                        <label>
+                            Last Name
+                                <input type="text" name="lastname" class="span3" placeholder="Smith" required="required" data-ng-model="user.lastName" /></label>
+                        <label>
+                            Email Address
+                                <input type="email" name="email" class="span3" placeholder="someone@example.com" required="required" data-ng-model="user.email" /></label>
+                        <label>
+                            User Name
+                                <input type="text" name="username" class="span3" autocomplete="off" placeholder="User Name" required="required" data-ng-model="user.userName" /></label>
+                        <label>
+                            Password
+                                <input type="password" name="password" class="span3" autocomplete="off" required="required" data-ng-model="user.password" /></label>
+                        <label>
+                            <input type="checkbox" name="acceptTerms" required="required" data-ng-model="user.acceptTerms" />
+                            I agree with the <a href="#">Terms and Conditions</a>.</label>
+                        <button type="submit" class="btn btn-primary pull-right" disabler="'Creating Account...'" data-ng-model="loading" data-ng-click="saveNewUser()" data-ng-disabled="isSaveDisabled()">
+                            Sign up</button>
+                        <div data-ng-show="userCreationSuccess">
+                            <hr />
+                            New user account created. Click <a data-ng-href="sign-in.html?userId={{ user.id }}">here</a> to sign in using your account.
+                        </div>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
